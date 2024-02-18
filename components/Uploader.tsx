@@ -17,7 +17,7 @@ import "@uppy/core/dist/style.min.css";
 import "@uppy/dashboard/dist/style.min.css";
 import { Button } from "./ui/button";
 import Tus from "@uppy/tus";
-import useUser from "@/app/hook/useUser";
+import useUser from "@/hook/useUser";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";

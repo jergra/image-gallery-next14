@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from './ui/button'
-import useUser from '@/app/hook/useUser'
+import useUser from '@/hook/useUser'
 import { supabaseBrowser } from '@/lib/supabase/browser'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'

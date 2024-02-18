@@ -1,18 +1,18 @@
-Feb 16, 2024
+Feb 17, 2024
 
-dev/images-gallery-next14
+dev/image-gallery-next14
 
 From tutorial (with a few small changes):
-  Build Image gallery with Next.js and Supabase Storage
-  https://www.youtube.com/watch?v=YmI8INix-d0
+- Build Image gallery with Next.js and Supabase Storage
+- https://www.youtube.com/watch?v=YmI8INix-d0
 
-  by Daily Web Coding
+- by Daily Web Coding
 
-Multi=user images gallery website built with Next14, supabase, supabase authentication, supabase storage, uppy.
+Multi-user image gallery website built with next14, supabase database, supabase authentication, supabase storage, uppy.
 
 Deployed:
 
-- Once deployed need to change homepage url from localhost  to deployed url
+Once deployed need to change homepage url from localhost to deployed url
 at github for OAuth purposes - personal settings - developer settings - OAuth Apps.
 Also at Supabase, under Authentication - URL Configuration, change Site URL from 
 localhost to deployed URL. 
