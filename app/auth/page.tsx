@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 // import { Button } from "@/components/ui/button";
 // import { KeyRound } from "lucide-react";
@@ -8,8 +8,12 @@
 // import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Signin from "@/components/Signin";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export default function Page() {
+
+	const [showSignin, setShowSignin] = useState(false)
 	// const params = useSearchParams();
 	// const next = params.get("next") || "";
 	// const handleLoginWithOAuth = (provider: "github" | "google") => {
@@ -25,8 +29,10 @@ export default function Page() {
 	return (
 		<div>
 			<Navbar />
+			<Button onClick={() => setShowSignin(true)}>Signin</Button>
 			<div className="flex items-center justify-center w-full h-[70vh]">
-				<Signin />
+				{showSignin ? <Signin /> : <></>}
+				
 				{/* <div className=" w-96 rounded-md border p-5 space-y-5 relative bg-slate-900">
 					<div className="flex items-center gap-2">
 						<KeyRound />
