@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { Button } from "./ui/button";
 import Link from "next/link";
 import useUser from "@/app/hook/useUser";
@@ -40,10 +40,10 @@ export default function Profile() {
 	};
 
 	return (
-		<div>
+		<div className='flex pr-5'>
 			{!data?.id ? (
 				<Link href="/auth" className=" animate-fade">
-					<Button variant="outline">SignIn</Button>
+					<Button variant="outline"></Button>
 				</Link>
 			) : (
 				<DropdownMenu>
@@ -65,12 +65,16 @@ export default function Profile() {
 						</>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent>
-						<DropdownMenuLabel>My Account</DropdownMenuLabel>
-						<DropdownMenuSeparator />
+						{/* <DropdownMenuLabel>My Account</DropdownMenuLabel> 
+						<DropdownMenuSeparator /> */}
 						<DropdownMenuItem onClick={handleLogout}>
 							Logout
 						</DropdownMenuItem>
-						<DropdownMenuItem>Billing</DropdownMenuItem>
+						<DropdownMenuItem onClick={()=>{
+							document.getElementById('upload-trigger')?.click()
+						}}>
+							Upload
+						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 			)}

@@ -1,25 +1,35 @@
-## Getting Started
+Feb 16, 2024
 
-First, run the development server:
+dev/images-gallery-next14
 
-```bash
-npm i
-npm run dev
-```
+From tutorial (with a few small changes):
+  Build Image gallery with Next.js and Supabase Storage
+  https://www.youtube.com/watch?v=YmI8INix-d0
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  by Daily Web Coding
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Multi=user images gallery website built with Next14, supabase, supabase authentication, supabase storage, uppy.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Deployed:
 
-## Learn More
+- Once deployed need to change homepage url from localhost  to deployed url
+at github for OAuth purposes - personal settings - developer settings - OAuth Apps.
+Also at Supabase, under Authentication - URL Configuration, change Site URL from 
+localhost to deployed URL. 
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
--   [Supabase](https://supabase.com/) - Build in a weekend Scale to millions.
--   [Shadcn](https://ui.shadcn.com/) - Build your component library.
--   [React Query](https://tanstack.com/query/latest/) - TanStack Query.
+
+todo: 
+
+push to github
+deploy
+
+
+
+.env.local:
+
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
 
 ## Profile table
 

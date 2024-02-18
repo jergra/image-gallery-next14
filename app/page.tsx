@@ -1,45 +1,58 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import React from "react";
+import DeletePost from '@/components/DeletePost'
+import Navbar from '@/components/Navbar'
+import Profile from '@/components/Profile'
+import Uploader from '@/components/Uploader'
+import { supabaseServer } from '@/lib/supabase/server'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-import { FaGithub, FaYoutube } from "react-icons/fa";
+export default async function page() {
 
-export default function page() {
+	const supabase = supabaseServer()
+
+	const {data} = await supabase
+		.from ('posts')
+		.select('*,profiles(display_name)')
+		.order('created_at', {ascending: false})
+
+	const imageUrlHost = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/`;
+
+	const posts = data?.map((post) => {
+		return {
+			image: `${post.post_by}/${post.id}/${post.name}`, 
+			...post,
+		}
+	})
+
 	return (
-		<div className="space-y-10">
-			<div>
-				<h1 className="text-xl font-bold">Test links</h1>
-				<div className=" space-x-2">
-					<Link href="/dashboard" className="underline">
-						/dashboard
-					</Link>
-					<Link href="/profile" className=" underline">
-						/profile
-					</Link>
-				</div>
+		<div>
+			<div className='flex w-full justify-between items-center pb-5'>
+				<Navbar />
+				<Profile />
 			</div>
-			<div className=" border-t pt-10">
-				<h1 className="text-xl font-bold">
-					Thank you cloning my boilerplate project.
-				</h1>
-				<p>If you want to support me. Follow me here</p>
-				<div className="mt-5">
-					<div className="flex items-center gap-5">
-						<Link
-							href={"https://www.youtube.com/c/DailyWebCoding"}
-							target="_blank"
-						>
-							<FaYoutube className="h-8 w-8 hover:scale-105" />
-						</Link>
-						<Link
-							href={"https://github.com/Chensokheng"}
-							target="_blank"
-						>
-							<FaGithub className="h-8 w-8 hover:scale-105" />
-						</Link>
-					</div>
-				</div>
+			<div className='flex flex-wrap'>
+				{posts?.map((post) => {
+					return (
+						<div key={post.id} className='relative m-5'>
+							<Link href={`/image/${post.id}`}>
+								<div className='relative'>
+									<Image 
+										src={imageUrlHost + post.image}
+										alt={post.description || ''}
+										width={343}
+										height={343}
+										className='object-cover object-center'
+									/>
+								</div>
+								<DeletePost post_by={post.post_by} image={post.image} />
+							</Link>
+						</div>
+					)
+				})}
 			</div>
+			
+			<Uploader />
 		</div>
-	);
+	)
 }
