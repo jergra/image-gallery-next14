@@ -28,8 +28,16 @@ export default function Page() {
 
 	return (
 		<div>
-			<Navbar />
-			<Button onClick={() => setShowSignin(true)}>Signin</Button>
+			<div className='flex justify-between items-center'>
+				<Navbar />
+				<Button 
+					onClick={() => setShowSignin(true)}
+					variant="outline"
+					className='mr-5'
+				>
+					Signin
+				</Button>
+			</div>
 			<div className="flex items-center justify-center w-full h-[70vh]">
 				{showSignin ? <Signin /> : <></>}
 				
