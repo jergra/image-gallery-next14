@@ -8,7 +8,7 @@ type Props = {
 
 export default async function page({ params: { id } }: Props) {
 
-    const supabase = supabaseServer()
+  const supabase = supabaseServer()
 
 	const {data}: any = await supabase
 		.from ('posts')
@@ -17,7 +17,7 @@ export default async function page({ params: { id } }: Props) {
 
 	const imageUrlHost = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/`;
 
-    const image = data[0].post_by + '/' + data[0].id + '/' + data[0].name
+  const image = data[0].post_by + '/' + data[0].id + '/' + data[0].name
 
  
   return (

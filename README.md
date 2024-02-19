@@ -12,18 +12,13 @@ Multi-user image gallery website built with next14, supabase database, supabase 
 
 Deployed:
 
+https://image-gallery-next14.vercel.app
+
+
 Once deployed need to change homepage url from localhost to deployed url
 at github for OAuth purposes - personal settings - developer settings - OAuth Apps.
 Also at Supabase, under Authentication - URL Configuration, change Site URL from 
 localhost to deployed URL. 
-
-
-todo: 
-
-push to github
-
-deploy
-
 
 
 .env.local:
